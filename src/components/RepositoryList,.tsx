@@ -4,10 +4,17 @@ import { useState, useEffect } from "react"
 
 //https://api.github.com/users/xanxes/repos
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string
+}
 
 export function RepositoryList(){
 
-    const [ repositories, setRepositories] = useState([]);
+    const [ repositories, setRepositories] = useState<Repository[]>([]);
+
+
 
     useEffect(() => {
         fetch('https://api.github.com/users/xanxes/repos')
